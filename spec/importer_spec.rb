@@ -33,7 +33,9 @@ describe Importer do
       @contacts.lines.count.should == 3
     end
 
-
+    it "should return the first record" do
+      raise @contacts.lines.first.inspect
+    end
 
   end
 
