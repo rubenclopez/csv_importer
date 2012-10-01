@@ -14,15 +14,15 @@ describe Importer do
     ->{ defined?(Importer) == 'constant' && Importer.is_a?(Class) }.call.should == true
   end
 
-#  it "Responds to methods" do
-#    [:column_names].each do |method|
-#      Importer.new('file').respond_to?(method).should be_true
-#    end
-#  end
-
   describe "New instance returns correct values" do
     before do
       @contacts = Importer.new(DUMMY_DATA)
+    end
+
+    it "responds to correct instance_methods" do
+      [:column_names].each do |method|
+        @contacts.respond_to?(method).should be_true
+      end
     end
 
     it "should return the correct columns" do
@@ -34,7 +34,7 @@ describe Importer do
     end
 
     it "should return the first record" do
-      raise @contacts.lines.first.inspect
+      @contacts.lines.first.first.should == [:first_name, "FN_Test1"]
     end
 
   end

@@ -28,3 +28,5 @@ class Importer
     
 end
 
+my_contacts = Importer.new('data/contacts.csv')
+
