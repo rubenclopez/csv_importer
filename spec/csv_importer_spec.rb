@@ -1,4 +1,4 @@
-require_relative '../importer'
+require_relative '../lib/csv_importer'
 
 
 DUMMY_DATA =  [
@@ -8,19 +8,19 @@ DUMMY_DATA =  [
                 "FN_Test3,LN_Test2,333-333-3333,Hello world"
               ]
 
-describe Importer do
+describe CsvImporter do
 
   it "should have a Importer class defined?" do
-    ->{ defined?(Importer) == 'constant' && Importer.is_a?(Class) }.call.should == true
+    ->{ defined?(CsvImporter) == 'constant' && CsvImporter.is_a?(Class) }.call.should == true
   end
 
   describe "New instance returns correct values" do
     before do
-      @contacts = Importer.new(DUMMY_DATA)
+      @contacts = CsvImporter.new(DUMMY_DATA)
     end
 
     it "responds to correct instance_methods" do
-      [:column_names].each do |method|
+      [:column_names, :all].each do |method|
         @contacts.respond_to?(method).should be_true
       end
     end

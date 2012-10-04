@@ -1,0 +1,5 @@
+course_id,course_name,state
+1,english,inactive
+2,math,active
+3,science,inactive
+4,computer science,active
